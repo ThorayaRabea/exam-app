@@ -1,0 +1,1 @@
+export const EXAM_ENDPOINT = "/api/exams" as const;

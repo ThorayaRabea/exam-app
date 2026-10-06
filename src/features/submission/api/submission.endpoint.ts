@@ -1,0 +1,1 @@
+export const SUBMISSIONS_ENDPOINT = "/api/submissions" as const;
