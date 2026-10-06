@@ -5,7 +5,7 @@
 
 **A full-featured online exam platform for Elevate Bootcamp students and admins.**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-black?style=for-the-badge&logo=vercel)](https://YOUR-APP.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-black?style=for-the-badge&logo=vercel)](https://exam-app-three-liart.vercel.app)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
@@ -23,7 +23,7 @@ Exam App digitizes the assessment workflow of a bootcamp. Students sign up, pick
 
 ## 🚀 Live Demo
 
-🔗 **https://YOUR-APP.vercel.app**
+🔗 **https://exam-app-three-liart.vercel.app**
 
 ## 👥 Two Experiences
 
