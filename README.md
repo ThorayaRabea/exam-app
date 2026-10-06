@@ -11,7 +11,7 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-![Exam App Preview](./screenshots/hero.png)
+![Exam App Preview](./screenshots/hero.jpg)
 
 </div>
 
