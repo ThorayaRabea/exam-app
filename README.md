@@ -110,4 +110,4 @@ Open http://localhost:5173
 
 ## 👩‍💻 Author
 
-**Your Name** · [LinkedIn](https://linkedin.com/in/YOUR-PROFILE) · [GitHub](https://github.com/YOUR-USERNAME)
+**Your Name** · [LinkedIn](https://linkedin.com/in/thoraya-rabea) · [GitHub](https://github.com/ThorayaRabea/exam-app/tree/main)
