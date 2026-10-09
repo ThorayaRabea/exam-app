@@ -1,4 +1,3 @@
-
 import EditDeleteImmutabilityButtons from "@/shared/components/edit-delete-immutability";
 import Navbar from "@/shared/components/navbar/navbar";
 import { useQueryClient } from "@tanstack/react-query";
@@ -7,6 +6,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { DIPLOMA_KEY } from "../../apis/diploma.key";
 import UseDeleteDiploma from "../../apis/mutations/use-delete-diploma";
+import UseImmutableDiploma from "../../apis/mutations/use-immutable-diploma";
 import { useDiplomaDetails } from "../../apis/queries/use-diploma-details";
 import DiplomaDetails from "../../components/admin-diploma/diploma-details/diploma-details";
 import EditDiplomaForm from "../../components/admin-diploma/diploma-details/edit-diploma-form";
@@ -25,6 +25,7 @@ export default function DiplomaViewPage() {
   const diploma = data?.payload?.diploma;
 
   const { mutate: deleteDiplomaApI } = UseDeleteDiploma();
+  const { mutate: immutableDiploma } = UseImmutableDiploma();
 
   function handleDeleteDiploma() {
     deleteDiplomaApI(diplomaId!, {
@@ -32,6 +33,18 @@ export default function DiplomaViewPage() {
         queryClient.invalidateQueries({ queryKey: DIPLOMA_KEY.all });
         navigate("/admin/diploma");
         toast.success("diploma has been deleted successfully", {
+          duration: 4000,
+        });
+      },
+    });
+  }
+
+  function handelImmutableDiploma() {
+    immutableDiploma(diplomaId!, {
+      onSuccess: () => {
+        setIsEditing(true);
+        queryClient.invalidateQueries({ queryKey: DIPLOMA_KEY.all });
+        toast.success("diploma has been made immutable successfully", {
           duration: 4000,
         });
       },
@@ -64,6 +77,7 @@ export default function DiplomaViewPage() {
             immutable={diploma?.immutable ?? false}
             onEdit={() => setIsEditing(true)}
             onDelete={handleDeleteDiploma}
+            onImmutable={handelImmutableDiploma}
           />
           <DiplomaDetails diploma={diploma} />
         </>

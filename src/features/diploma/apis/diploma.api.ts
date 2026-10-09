@@ -49,3 +49,11 @@ export async function updateDiplomaAPI(
   );
   return response.data;
 }
+
+export async function immutableDiplomaAPI(id: string) {
+  const response = await axiosInstance.patch<{immutable:boolean}>(
+    `${DIPLOMA_ENDPOINT}/${id}/immutable`,
+  );
+   console.log(response.data);
+  return response.data;
+}

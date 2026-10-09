@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { EXAM_KEY } from "../../apis/exam.keys";
 import UseDeleteExam from "../../apis/mutations/use-delete-exam";
+import UseImmutableExam from "../../apis/mutations/use-immutable-exam";
 import UseExamDetails from "../../apis/queries/use-exam-details";
 import ExamForm from "../../components/admin/exam-details/edit-exam-form";
 import ExamDetailsPage from "../../components/admin/exam-details/exam-datails";
@@ -25,13 +26,25 @@ export default function ExamViewPage() {
   const exam = data?.payload?.exam;
 
   const { mutate: deleteExamApI } = UseDeleteExam();
-
+  const { mutate: immutableExam } = UseImmutableExam();
   function handleDeleteExam() {
     deleteExamApI(examId!, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: EXAM_KEY.all });
         navigate("/admin/exam");
         toast.success("exam has been deleted successfully", {
+          duration: 4000,
+        });
+      },
+    });
+  }
+
+  function handelImmutableExam() {
+    immutableExam(examId!, {
+      onSuccess: () => {
+        setIsEditing(true);
+        queryClient.invalidateQueries({ queryKey: EXAM_KEY.all });
+        toast.success("exam has been made immutable successfully", {
           duration: 4000,
         });
       },
@@ -63,13 +76,12 @@ export default function ExamViewPage() {
             immutable={exam?.immutable ?? false}
             onEdit={() => setIsEditing(true)}
             onDelete={handleDeleteExam}
+            onImmutable={handelImmutableExam}
           />
           <ExamDetailsPage exam={exam} />
           <ExamQuestionsTable examId={examId!} examTitle={examTitle} />
         </>
       )}
-
-    
     </>
   );
 }

@@ -6,6 +6,7 @@ interface ActionRowProps {
   immutable: boolean;
   onEdit?: () => void;
   onDelete?: () => void;
+  onImmutable?: () => void;
 }
 
 export default function EditDeleteImmutabilityButtons({
@@ -13,6 +14,7 @@ export default function EditDeleteImmutabilityButtons({
   immutable,
   onEdit,
   onDelete,
+  onImmutable,
 }: ActionRowProps) {
   return (
     <div className="flex items-center justify-between border border-gray-200 bg-white px-4 py-2">
@@ -20,12 +22,16 @@ export default function EditDeleteImmutabilityButtons({
 
       <div className="flex items-center gap-2">
         {immutable && (
-          <span className="flex items-center gap-2 rounded bg-gray-100 px-3 py-2 text-xs font-medium text-gray-500">
-            <Ban size={14} />
-            Immutable
-          </span>
+           <Button
+          className="flex items-center gap-2 rounded bg-gray-100 px-3 py-2 text-xs font-medium text-gray-500"
+          onClick={onImmutable}
+        >
+          <Ban size={14} />
+          Immutable
+        </Button>
         )}
 
+       
         <Button
           type="button"
           onClick={onEdit}
